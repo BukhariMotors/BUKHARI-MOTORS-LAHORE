@@ -1,278 +1,732 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-    <title>Bukhari Motors | Luxury Car Dealer Lahore</title>
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Font Awesome for Icons -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bukhari Motors | Premium Luxury Automotive Dealer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Montserrat', 'sans-serif'],
-                    },
-                    colors: {
-                        brandRed: '#D32F2F',
-                        brandYellow: '#FFD700',
-                        brandDark: '#0A0A0A'
-                    }
-                }
-            }
-        }
-    </script>
+    
     <style>
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
+        :root {
+            --bg-dark: #0a0a0a;
+            --bg-card: #141414;
+            --primary: #e62129; /* Premium Red */
+            --primary-hover: #b8141a;
+            --accent: #f0b429; /* Luxury Gold Element */
+            --text-light: #ffffff;
+            --text-muted: #cccccc;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: rgba(10, 10, 10, 0.95);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+        }
+
+        .brand img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--primary);
+        }
+
+        .brand-name {
+            font-family: 'Cinzel', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-light);
+            letter-spacing: 1px;
+        }
+
+        .brand-name span {
+            color: var(--primary);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--text-light);
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--primary);
+            transition: var(--transition);
+        }
+
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+
+        .nav-menu a:hover {
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(10, 10, 10, 1)), 
+                        url('https://images.topgear.com.ph/topgear/images/2023/11/28/2-1701146864.jpg') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            padding-top: 80px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+            line-height: 1.2;
+            animation: fadeInDown 1s ease;
+        }
+
+        .hero h1 span {
+            color: var(--primary);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 40px;
+            animation: fadeInUp 1s ease 0.2s;
+            animation-fill-mode: both;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 40px;
+            background-color: var(--primary);
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 4px;
+            transition: var(--transition);
+            border: 2px solid var(--primary);
+            animation: fadeInUp 1s ease 0.4s;
+            animation-fill-mode: both;
+        }
+
+        .btn:hover {
+            background-color: transparent;
+            color: var(--primary);
+            box-shadow: 0 0 15px rgba(230, 33, 41, 0.4);
+        }
+
+        /* Section Global Styles */
+        section {
+            padding: 100px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 2.5rem;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+            margin-bottom: 15px;
+        }
+
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 3px;
+            background-color: var(--primary);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* About Section */
+        .about-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.8rem;
+            color: var(--accent);
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+        }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .stat-box {
+            background-color: var(--bg-card);
+            padding: 20px;
+            border-radius: 4px;
+            border-left: 3px solid var(--primary);
+            text-align: center;
+        }
+
+        .stat-box h4 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background-color: var(--bg-card);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: var(--transition);
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+            box-shadow: 0 10px 20px rgba(230, 33, 41, 0.1);
+        }
+
+        .service-img-wrapper {
+            height: 240px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .service-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .service-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .service-content {
+            padding: 30px;
+        }
+
+        .service-content h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: var(--text-light);
+        }
+
+        .service-content p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+        }
+
+        /* Reviews Section */
+        .reviews-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .review-card {
+            background-color: var(--bg-card);
+            padding: 30px;
+            border-radius: 8px;
+            position: relative;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .stars {
+            color: var(--accent);
+            margin-bottom: 15px;
+        }
+
+        .review-card p {
+            color: var(--text-muted);
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+
+        .reviewer {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .reviewer-info h4 {
+            font-size: 1rem;
+            color: var(--text-light);
+        }
+
+        /* FAQs Section */
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background-color: var(--bg-card);
+            margin-bottom: 15px;
+            border-radius: 4px;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .faq-question {
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .faq-question i {
+            transition: var(--transition);
+            color: var(--primary);
+        }
+
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s cubic-bezier(0,1,0,1);
+            color: var(--text-muted);
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 0 20px 20px 20px;
+            max-height: 1000px;
+            transition: all 0.3s cubic-bezier(1,0,1,0);
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+
+        /* Footer Section */
+        footer {
+            background-color: #050505;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding: 80px 20px 20px 20px;
+        }
+
+        .footer-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .footer-col h3, .footer-col h4 {
+            font-family: 'Cinzel', serif;
+            color: var(--text-light);
+            margin-bottom: 25px;
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+        }
+
+        .footer-about p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+            padding-left: 5px;
+        }
+
+        .contact-info li {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            color: var(--text-muted);
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+
+        .contact-info i {
+            color: var(--primary);
+            margin-top: 4px;
+        }
+
+        .map-wrapper {
+            width: 100%;
+            height: 200px;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .map-wrapper iframe {
+            width: 100%;
+            height: 100%;
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
             to { opacity: 1; transform: translateY(0); }
         }
-        .animate-fade-in {
-            animation: fadeIn 1s ease-out forwards;
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
-        .hero-glow {
-            background: linear-gradient(180deg, rgba(10,10,10,0.4) 0%, rgba(10,10,10,0.9) 100%);
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-menu { display: none; } /* Simplified for drop-in setup */
+            .about-container { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 2.3rem; }
+            section { padding: 60px 20px; }
         }
     </style>
 </head>
-<body class="bg-brandDark text-white antialiased">
+<body>
 
-    <!-- NAVIGATION -->
-    <nav class="fixed w-full z-50 bg-black/80 backdrop-blur-md border-b border-white/10 px-6 py-4 flex justify-between items-center">
-        <a href="#" class="flex items-center gap-3 group">
-            <!-- Instagram Logo fallback visual alignment -->
-            <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-brandRed to-brandYellow p-0.5 flex items-center justify-center">
-                <div class="w-full h-full bg-black rounded-full flex items-center justify-center text-brandYellow group-hover:text-white transition">
-                    <i class="fa-solid fa-car-side text-lg"></i>
-                </div>
-            </div>
-            <span class="font-extrabold text-xl tracking-wider uppercase text-white">Bukhari <span class="text-brandYellow">Motors</span></span>
-        </a>
-        
-        <!-- Navigation Menu -->
-        <div class="hidden md:flex gap-8 font-semibold tracking-wide text-sm uppercase">
-            <a href="#about" class="hover:text-brandYellow transition duration-300">About</a>
-            <a href="#services" class="hover:text-brandYellow transition duration-300">Services</a>
-            <a href="#reviews" class="hover:text-brandYellow transition duration-300">Reviews</a>
-            <a href="#contact" class="hover:text-brandYellow transition duration-300">Contact</a>
+    <header>
+        <div class="nav-container">
+            <a href="#" class="brand">
+                <img src="https://scontent.cdninstagram.com/v/t51.2885-19/458189194_868891438512000_6612732551154370245_n.jpg?stp=dst-jpg_s150x150_tt6&_nc_cat=108&ccb=7-5&_nc_sid=f7ccc5&efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLnd3dy4xMDgwLkMyIn0%3D&_nc_ohc=Qkr8Sn66EQMQ7kNvwGSuw8T&_nc_oc=Adqi1KDrCs8TpeVBoFxXq7nCXc3O3mGV81ihR_u88KtqbbRD_Sj5fNe6krgJTR1Gc6AsDfU3-HaGohIp56AP5swQ&_nc_zt=24&_nc_ht=scontent.cdninstagram.com&_nc_ss=7b689&oh=00_AQAQu86C2x6ShAtuLCJzxzQ8C2BbJxdq7Uppl7PsIcdcQQ&oe=6A55D939" alt="Bukhari Motors Logo">
+                <div class="brand-name">Bukhari <span>Motors</span></div>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="#">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+            </ul>
         </div>
+    </header>
 
-        <!-- Social Logo Link (Instagram provided) -->
-        <a href="https://www.instagram.com/bukhari.motors.pk?igsh=MTh5d25nbWVpa2Z0MA==" target="_blank" class="bg-brandRed hover:bg-brandYellow hover:text-black text-white px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 shadow-lg shadow-brandRed/20">
-            <i class="fa-brands fa-instagram mr-1"></i> Instagram
-        </a>
-    </nav>
-
-    <!-- HERO SECTION -->
-    <section class="relative h-screen flex items-center justify-center overflow-hidden bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1617788138017-80ad40651399?auto=format&fit=crop&q=80&w=1920');">
-        <div class="absolute inset-0 hero-glow"></div>
-        <div class="relative z-10 text-center max-w-4xl px-6 animate-fade-in">
-            <span class="text-brandYellow font-bold tracking-widest uppercase text-sm block mb-3">Premium Automotive Hub | Pakistan</span>
-            <h1 class="text-5xl md:text-7xl font-black uppercase tracking-tight mb-6">
-                Drive Luxury. <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-brandRed via-white to-brandYellow">Experience Power.</span>
-            </h1>
-            <p class="text-gray-300 md:text-lg mb-8 max-w-2xl mx-auto">
-                Welcome to Bukhari Motors, Lahore's premier destination for exceptional new, used, and exchange vehicles.
-            </p>
-            <div class="flex flex-col sm:flex-row justify-center gap-4">
-                <a href="#services" class="bg-brandRed hover:bg-white hover:text-black text-white font-bold uppercase tracking-wider px-8 py-4 rounded shadow-xl transition duration-300">Explore Showroom</a>
-                <a href="#contact" class="border border-white/30 hover:border-brandYellow hover:text-brandYellow text-white font-bold uppercase tracking-wider px-8 py-4 rounded transition duration-300">Book Consultation</a>
-            </div>
-        </div>
-        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/40 animate-bounce">
-            <i class="fa-solid fa-chevron-down text-2xl"></i>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Defining <span>Automotive Luxury</span> In Lahore</h1>
+            <p>Experience an elite acquisitions journey crafted strictly around high-end, premium vehicle trading paradigms.</p>
+            <a href="#services" class="btn">Explore Showroom Services</a>
         </div>
     </section>
 
-    <!-- ABOUT SECTION -->
-    <section id="about" class="py-24 px-6 md:px-12 bg-zinc-950 border-b border-white/5">
-        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-            <div class="relative group">
-                <div class="absolute -inset-1 bg-gradient-to-r from-brandRed to-brandYellow rounded-lg blur opacity-20 group-hover:opacity-40 transition duration-500"></div>
-                <img src="https://images.unsplash.com/photo-1562141961-b5d1472df730?auto=format&fit=crop&q=80&w=800" alt="Bukhari Motors Luxury Showroom" class="relative rounded-lg object-cover w-full h-[400px] border border-white/10">
-            </div>
-            <div>
-                <span class="text-brandRed font-bold tracking-widest uppercase text-xs block mb-2">Elite Car Dealer</span>
-                <h2 class="text-3xl md:text-4xl font-extrabold uppercase tracking-tight mb-6">About Bukhari Motors</h2>
-                <!-- Exactly 450 Characters Description Below -->
-                <p class="text-gray-300 leading-relaxed text-base tracking-wide border-l-2 border-brandYellow pl-4">
-                    Bukhari Motors stands proudly as Lahore’s trusted automotive benchmark, delivering matchless access to absolute premier luxury and absolute peak mechanical performance. Situated carefully in Faisal Town, we craft a completely flawless acquisitions journey tailored strictly around premium vehicle trading paradigms. Trust our elite specialists to secure your dream drive with perfect structural integrity and absolute satisfaction.
-                </p>
-                <div class="mt-8 flex items-center gap-6">
-                    <div>
-                        <span class="text-3xl font-black text-brandYellow block">100%</span>
-                        <span class="text-xs text-gray-400 uppercase tracking-wider">Verified Stock</span>
+    <section id="about">
+        <div class="about-container">
+            <div class="about-text">
+                <h3>Who We Are</h3>
+                <p>Bukhari Motors stands proudly as Lahore’s trusted automotive benchmark, delivering matchless access to absolute premier luxury and absolute peak mechanical performance.</p>
+                <p>Situated carefully in Faisal Town, we craft a completely flawless acquisitions journey tailored strictly around premium vehicle trading paradigms. Our commitment ensures that every client transitions smoothly into their next elite automotive chapter.</p>
+                <div class="about-stats">
+                    <div class="stat-box">
+                        <h4>100%</h4>
+                        <p>Luxury Vibe</p>
                     </div>
-                    <div class="w-px h-10 bg-white/10"></div>
-                    <div>
-                        <span class="text-3xl font-black text-brandRed block">Lahore</span>
-                        <span class="text-xs text-gray-400 uppercase tracking-wider">Prime Location</span>
+                    <div class="stat-box">
+                        <h4>Faisal Town</h4>
+                        <p>Prime Location</p>
                     </div>
                 </div>
             </div>
+            <div class="about-image">
+                <img src="https://i.pinimg.com/originals/c6/55/bc/c655bc6fb004c43f23acaea4394afad7.jpg">
+            </div>
         </div>
     </section>
 
-    <!-- SERVICES SECTION -->
-    <section id="services" class="py-24 px-6 md:px-12 bg-brandDark">
-        <div class="max-w-6xl mx-auto text-center mb-16">
-            <span class="text-brandYellow font-bold tracking-widest uppercase text-xs block mb-2">Our Capabilities</span>
-            <h2 class="text-3xl md:text-4xl font-extrabold uppercase tracking-tight">Premium Services in Pakistan</h2>
+    <section id="services">
+        <div class="section-header">
+            <h2>Our Premium Services</h2>
+            <p>Hand-tailored transactional solutions engineered for luxury auto collectors and prestige seekers.</p>
         </div>
-        
-        <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
-            <!-- Service 1 -->
-            <div class="bg-zinc-950 border border-white/5 rounded-xl overflow-hidden hover:border-brandRed/50 transition-all duration-300 group">
-                <div class="h-48 overflow-hidden relative">
-                    <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&q=80&w=600" alt="New Car Sales" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                    <div class="absolute inset-0 bg-black/40"></div>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-img-wrapper">
+                    <img src="https://images.topgear.com.ph/topgear/images/2023/11/28/2-1701146864.jpg" alt="New Car Sales">
                 </div>
-                <div class="p-6">
-                    <div class="text-brandYellow mb-3 text-xl"><i class="fa-solid fa-certificate"></i></div>
-                    <h3 class="text-xl font-bold uppercase mb-3 text-white">New Car Sales</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed">Experience zero-kilometer luxury. We procure and deliver the newest international automotive arrivals straight to Pakistan with full factory protections and premium customs handling.</p>
+                <div class="service-content">
+                    <h3>New Car Sales</h3>
+                    <p>Acquire zero-mile luxury vehicles and supercars configured directly to your specifications with elite factory privileges.</p>
+                    <a href="https://share.google/bTNmmVBiftYDREcC3" target="_blank" class="footer-links" style="color:var(--primary); font-weight:600;">Inquire Options →</a>
                 </div>
             </div>
-
-            <!-- Service 2 -->
-            <div class="bg-zinc-950 border border-white/5 rounded-xl overflow-hidden hover:border-brandYellow/50 transition-all duration-300 group">
-                <div class="h-48 overflow-hidden relative">
-                    <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&q=80&w=600" alt="Used Car Sales" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                    <div class="absolute inset-0 bg-black/40"></div>
+            <div class="service-card">
+                <div class="service-img-wrapper">
+                    <img src="https://avatars.avto.ru/get-vertis-journal/4469561/2025-honda-civic-rs-jdm_2.jpg_1766666182777/orig" alt="Used Car Sales">
                 </div>
-                <div class="p-6">
-                    <div class="text-brandRed mb-3 text-xl"><i class="fa-solid fa-gauge-high"></i></div>
-                    <h3 class="text-xl font-bold uppercase mb-3 text-white">Used Car Sales</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed">Drive certified performance. Our pre-owned collection features thorough 150-point diagnostics ensuring every component matches rigorous aesthetic and structural standards.</p>
+                <div class="service-content">
+                    <h3>Used Car Sales</h3>
+                    <p>Explore an elite inventory of certified pre-owned exotic and luxury vehicles meticulously vetted for condition and provenance.</p>
+                    <a href="https://share.google/bTNmmVBiftYDREcC3" target="_blank" class="footer-links" style="color:var(--primary); font-weight:600;">Browse Inventory →</a>
                 </div>
             </div>
-
-            <!-- Service 3 -->
-            <div class="bg-zinc-950 border border-white/5 rounded-xl overflow-hidden hover:border-brandRed/50 transition-all duration-300 group">
-                <div class="h-48 overflow-hidden relative">
-                    <img src="https://images.unsplash.com/photo-1486006920555-c77dce18193b?auto=format&fit=crop&q=80&w=600" alt="Cars Exchange Service" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                    <div class="absolute inset-0 bg-black/40"></div>
+            <div class="service-card">
+                <div class="service-img-wrapper">
+                    <img src="https://quto.ru/thumb/1280x720/filters:quality(75)/imgs/2024/07/25/11/6543183/d3adfab6b06060823fda8df3752cea012813fa0e.jpg" alt="Cars Exchange Service">
                 </div>
-                <div class="p-6">
-                    <div class="text-brandYellow mb-3 text-xl"><i class="fa-solid fa-right-left"></i></div>
-                    <h3 class="text-xl font-bold uppercase mb-3 text-white">Cars Exchange Service</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed">Upgrade your ride seamlessly. Bring your current vehicle to Bukhari Motors for rapid transparent evaluation and competitive trade-in value toward your next luxury acquisition.</p>
+                <div class="service-content">
+                    <h3>Cars Exchange Service</h3>
+                    <p>Upgrade effortlessly with competitive vehicle appraisal evaluations and swift trade-in equity balancing systems.</p>
+                    <a href="https://share.google/bTNmmVBiftYDREcC3" target="_blank" class="footer-links" style="color:var(--primary); font-weight:600;">Value Your Trade →</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- REVIEWS SECTION -->
-    <section id="reviews" class="py-24 px-6 md:px-12 bg-zinc-950">
-        <div class="max-w-6xl mx-auto text-center mb-16">
-            <span class="text-brandRed font-bold tracking-widest uppercase text-xs block mb-2">Testimonials</span>
-            <h2 class="text-3xl md:text-4xl font-extrabold uppercase tracking-tight">Customer Reviews</h2>
-        </div>
-
-        <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
-            <!-- Review 1 -->
-            <div class="bg-brandDark p-8 rounded-xl border border-white/5 relative">
-                <div class="text-brandYellow mb-4 flex gap-1">
-                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                </div>
-                <p class="text-gray-300 italic text-sm mb-6">"Excellent experience buying my clean sedan here. The documentation process was quick and fair pricing made it easy. Highly recommended car dealer in Lahore!"</p>
-                <div class="font-bold text-white text-sm uppercase">— Kamran Shah</div>
+    <section id="reviews" style="background-color: var(--bg-card); max-width: 100%; width: 100%;">
+        <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+            <div class="section-header">
+                <h2>What Elite Clients Say</h2>
+                <p>Read transparent testimonials demonstrating our continuous standard of luxury trading expertise.</p>
             </div>
-
-            <!-- Review 2 -->
-            <div class="bg-brandDark p-8 rounded-xl border border-white/5 relative">
-                <div class="text-brandYellow mb-4 flex gap-1">
-                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                </div>
-                <p class="text-gray-300 italic text-sm mb-6">"Used their car exchange service to trade my old SUV. They provided an incredible market value evaluation and handed over the keys to my new car in a day."</p>
-                <div class="font-bold text-white text-sm uppercase">— Zainab Malik</div>
-            </div>
-
-            <!-- Review 3 -->
-            <div class="bg-brandDark p-8 rounded-xl border border-white/5 relative">
-                <div class="text-brandYellow mb-4 flex gap-1">
-                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                </div>
-                <p class="text-gray-300 italic text-sm mb-6">"The absolute premium spot for automobile lovers in Faisal Town. Bukhari Motors treats you like family and offers absolute structural transparency on all vehicles."</p>
-                <div class="font-bold text-white text-sm uppercase">— Haris Butt</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CONTACT SECTION -->
-    <section id="contact" class="py-24 px-6 md:px-12 bg-brandDark">
-        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12">
-            <div>
-                <span class="text-brandYellow font-bold tracking-widest uppercase text-xs block mb-2">Connect Now</span>
-                <h2 class="text-4xl font-extrabold uppercase tracking-tight mb-6">Visit Our Showroom</h2>
-                <p class="text-gray-400 mb-8">Have questions regarding a vehicle or trade valuation? Drop us a query or call our premium support desk directly.</p>
-                
-                <div class="space-y-6">
-                    <div class="flex items-start gap-4">
-                        <div class="w-10 h-10 rounded bg-white/5 flex items-center justify-center text-brandRed border border-white/10 shrink-0"><i class="fa-solid fa-phone"></i></div>
-                        <div>
-                            <span class="text-xs text-gray-400 uppercase block">Phone Numbers</span>
-                            <a href="tel:03002018644" class="text-white hover:text-brandYellow block transition">0300 2018644</a>
-                            <a href="tel:03098284797" class="text-white hover:text-brandYellow block transition">0309 8284797</a>
+            <div class="reviews-container">
+                <div class="review-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p>"The absolute benchmark of premium dealership processing in Lahore. Purchased a luxury sedan seamlessly. Highly professional environment."</p>
+                    <div class="reviewer">
+                        <div class="reviewer-info">
+                            <h4>Zain Malik</h4>
                         </div>
                     </div>
-                    <div class="flex items-start gap-4">
-                        <div class="w-10 h-10 rounded bg-white/5 flex items-center justify-center text-brandYellow border border-white/10 shrink-0"><i class="fa-solid fa-location-dot"></i></div>
-                        <div>
-                            <span class="text-xs text-gray-400 uppercase block">Address Location</span>
-                            <p class="text-white">862-C, Block C Faisal Town Lahore, Pakistan</p>
-                        </div>
+                </div>
+                <div class="review-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                     </div>
-                    <div class="flex items-start gap-4">
-                        <div class="w-10 h-10 rounded bg-white/5 flex items-center justify-center text-brandRed border border-white/10 shrink-0"><i class="fa-solid fa-clock"></i></div>
-                        <div>
-                            <span class="text-xs text-gray-400 uppercase block">Operational Hours</span>
-                            <p class="text-white">Mon - Sat: 11:00 AM To 10:00 PM</p>
+                    <p>"Traded my luxury crossover using their Exchange Service. Transparent valuation, stellar asset handling, and highly reliable paperwork systems."</p>
+                    <div class="reviewer">
+                        <div class="reviewer-info">
+                            <h4>Ayesha Khan</h4>
                         </div>
                     </div>
                 </div>
             </div>
-            
-            <!-- Quick Contact Form -->
-            <div class="bg-zinc-950 p-8 rounded-xl border border-white/5">
-                <form class="space-y-4" onsubmit="event.preventDefault(); alert('Message sent successfully to Bukhari Motors!');">
-                    <div>
-                        <label class="text-xs font-semibold uppercase text-gray-400 block mb-1">Your Name</label>
-                        <input type="text" required class="w-full bg-brandDark border border-white/10 rounded px-4 py-3 text-white focus:outline-none focus:border-brandYellow transition text-sm">
-                    </div>
-                    <div>
-                        <label class="text-xs font-semibold uppercase text-gray-400 block mb-1">Phone Number</label>
-                        <input type="tel" required class="w-full bg-brandDark border border-white/10 rounded px-4 py-3 text-white focus:outline-none focus:border-brandYellow transition text-sm">
-                    </div>
-                    <div>
-                        <label class="text-xs font-semibold uppercase text-gray-400 block mb-1">Message</label>
-                        <textarea rows="4" required class="w-full bg-brandDark border border-white/10 rounded px-4 py-3 text-white focus:outline-none focus:border-brandYellow transition text-sm"></textarea>
-                    </div>
-                    <button type="submit" class="w-full bg-brandYellow hover:bg-brandRed text-black hover:text-white font-bold uppercase tracking-wider py-3 rounded transition duration-300 text-sm">Submit Request</button>
-                </form>
+        </div>
+    </section>
+
+    <section id="faqs">
+        <div class="section-header">
+            <h2>Frequently Asked Questions</h2>
+            <p>Clear guidance addressing your prime concerns regarding vehicle acquisitions and financing.</p>
+        </div>
+        <div class="faq-container">
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>What are your business hours?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>We operate from Monday through Saturday, starting from 11:00 AM until 10:00 PM. We are closed on Sundays.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Where is Bukhari Motors located in Lahore?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Our premium luxury showroom is centrally situated at 862-C Faisal Town, Lahore, Pakistan.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>How does the Cars Exchange Service function?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>You bring your existing automobile to our Faisal Town branch for a meticulous inspection. We assess its market value and balance it seamlessly against the luxury vehicle you wish to upgrade to.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- FOOTER -->
-    <footer class="bg-black py-12 px-6 border-t border-white/10 text-center text-sm text-gray-500">
-        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6 mb-8">
-            <div class="text-left">
-                <div class="font-extrabold text-white text-lg uppercase tracking-wider mb-1">Bukhari <span class="text-brandYellow">Motors</span></div>
-                <p class="text-xs text-gray-400">© 2026 Designed By TRG. All rights reserved.</p>
+    <footer id="contact">
+        <div class="footer-grid">
+            <div class="footer-col footer-about">
+                <h3>Bukhari <span>Motors</span></h3>
+                <p>Lahore’s trusted automotive benchmark, delivering matchless access to absolute premier luxury and absolute peak mechanical performance.</p>
             </div>
-            <div class="flex gap-6 uppercase tracking-widest text-xs font-bold text-gray-400">
-                <a href="#about" class="hover:text-white transition">About</a>
-                <a href="#services" class="hover:text-white transition">Services</a>
-                <a href="#reviews" class="hover:text-white transition">Reviews</a>
-                <a href="https://share.google/ViLzauhkO4IJkRL22" target="_blank" class="text-brandYellow hover:underline transition"><i class="fa-solid fa-map-location-dot mr-1"></i> Find Us on Google (GMB)</a>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="https://share.google/bTNmmVBiftYDREcC3" target="_blank">Google Business Page</a></li>
+                </ul>
             </div>
+            <div class="footer-col">
+                <h4>Contact Information</h4>
+                <ul class="contact-info">
+                    <li>
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>862-C Faisal Town Lahore Pakistan</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-phone-alt"></i>
+                        <span>03002018644<br>0309 8284797</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-envelope"></i>
+                        <span>bukharimotorspk110@gmail.com</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-clock"></i>
+                        <span>Mon - Sat<br>11:00 AM To 10:00 PM</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Our Location</h4>
+                <div class="map-wrapper">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m12!1m8!1m3!1d209145.86682659425!2d74.281311!3d31.5311409!3m2!1i1024!2i768!4f13.1!2m1!1sbukhari%20motors%20lahore!5e1!3m2!1sen!2s!4v1783634785747!5m2!1sen!2s" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Designed By Bukhari Motors. All Rights Reserved.</p>
         </div>
     </footer>
 
+    <script>
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+                faqItems.forEach(i => i.classList.remove('active'));
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
